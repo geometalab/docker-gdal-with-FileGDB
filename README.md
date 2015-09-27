@@ -5,6 +5,8 @@ the gdal binary, which supports writing FileGDB output data.
 
 Currently, this is creating a 64-bit version only, in a docker container.
 
+Based upon Ubuntu 14.04.
+
 ## Acknowledgment
 
 This repository shamelessly reuses the gdal docker image build process
