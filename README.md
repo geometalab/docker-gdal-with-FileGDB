@@ -12,9 +12,17 @@ used in https://github.com/geo-data/gdal-docker/tree/2.0.0.
 
 ## Using the image
 
-TODO: Upload/Generate the image using dockerhub.
+Getting supported formats:
 
-Until then, use the steps below.
+```shell
+docker run --rm -it geometalab/gdal-with-filegdb:latest ogrinfo --formats
+```
+Doing something with data, ie. having a `test_fgdb.gdb` file/directory:
+
+```shell
+docker run -v $(pwd):/data --rm -it geometalab/gdal-with-filegdb:latest ogrinfo test_fgdb.gdb
+```
+
 
 ## Building the image
 
@@ -22,7 +30,4 @@ This is a `shortcut` for https://trac.osgeo.org/gdal/wiki/FileGDB.
 
 For Compiling GDAL itself, have a look at https://trac.osgeo.org/gdal/wiki/BuildHints.
 
-Steps:
-
-1. Run the build process: `docker build -t <image_name> .`
-2. Use the image: `docker run -v $(pwd):/data -t <image_name>`
+Run the build process: `docker build -t <image_name> .`
