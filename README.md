@@ -24,10 +24,13 @@ docker run -v $(pwd):/data --rm -it geometalab/gdal-with-filegdb:latest ogrinfo 
 ```
 
 
-## Building the image
+## Building the image and pushing a new version on Dockerhub
 
 This is a `shortcut` for https://trac.osgeo.org/gdal/wiki/FileGDB.
 
 For Compiling GDAL itself, have a look at https://trac.osgeo.org/gdal/wiki/BuildHints.
 
-Run the build process: `docker build -t <image_name> .`
+Assuming you have the corresponding rights to push and posess a docker login and `docker login` succeeded:
+
+1. Run the build process: `docker build -t geometalab/gdal-with-filegdb .`
+2. docker push geometalab/gdal-with-filegdb:latest

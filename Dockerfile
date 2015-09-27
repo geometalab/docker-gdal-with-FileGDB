@@ -23,10 +23,10 @@ ENV FILEGDB=/usr/local/src/gdal-docker/FileGDB_API
 RUN echo "${FILEGDB}/lib" > /etc/ld.so.conf.d/file_gdb_so.conf
 RUN ldconfig
 
-RUN apt-get update -y && \
-    apt-get install -y make && \
-    make -C /usr/local/src/gdal-docker install clean && \
-    apt-get purge -y make
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y make && \
+    DEBIAN_FRONTEND=noninteractive make -C /usr/local/src/gdal-docker install clean && \
+    DEBIAN_FRONTEND=noninteractive apt-get purge -y make
 
 # Externally accessible data is by default put in /data
 WORKDIR /data
